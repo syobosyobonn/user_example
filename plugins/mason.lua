@@ -33,4 +33,25 @@ return {
       })
     end,
   },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = { "lua_ls", "tsserver", "jsonlsp", "yaml-language-server", "tailwindcss" },
+    },
+  },
+  {
+    "TimUntersberger/neogit",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    dependencies = {
+      "sindrets/diffview.nvim",
+    },
+    config = function()
+      require("neogit").setup {
+        integrations = {
+          diffview = true,
+        },
+      }
+    end,
+  },
 }
